@@ -105,10 +105,6 @@ class Sprite
     {
       this.currentAnim = 0;
     }
-    this.velocity.limit(3);*/
-    
+    this.velocity.limit(3);*/ 
   }
-  
-  
-  
 }

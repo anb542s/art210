@@ -9,8 +9,8 @@ class Chick extends Sprite
     this.registerAnimation(new Animation("chickie","png"));
     this.registerAnimation(new Animation("chickie_reverse","png"));
     this.scale = 0.4;
-   // this.w = 100;
-   // this.h = 200;
+    // this.w = 100;
+    // this.h = 200;
     this.collRadius=this.w/1.40; // size of circle 
     //this.translation.y=this.h / (-2.0); 
     this.h = 120;
