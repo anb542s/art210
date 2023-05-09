@@ -9,11 +9,6 @@ Raindrop[] z = new Raindrop[nRaindrop];
 boolean test = false; // test the collision box
 PFont myfont;
 
-String timeString = "000";
-  int time;
-  int initialTime;
-  int interval = 1000;
-  int totalTime = 10000;
 
 static final int SPLASH = 0;
 static final int PLAY = 1;
@@ -27,7 +22,6 @@ void setup()
   Ani.init(this);
   myfont = createFont("ribeye.ttf",100);
   gameStateChange(SPLASH);
-  initialTime = millis();
   
     file = new SoundFile(this, "ducks-at-the-lake-18260.wav");
     file.loop();
@@ -43,18 +37,7 @@ void draw()
   if(gameState == SPLASH) splash_run();
   if(gameState == PLAY) game_run();
   if(gameState == LOSE) LOSE_run();
-  
-  if (millis() - initialTime > interval)
-  {
-    time = int(millis()/1000);
-    timeString = nf(time, 3);
-    initialTime = millis();
-    textAlign(CENTER, 100);
-  }
-       fill(255);
-       text(timeString, width/1.06, height/12);
-       if (millis() >= totalTime)
-       noLoop();
+
 }
 
 void keyPressed()
