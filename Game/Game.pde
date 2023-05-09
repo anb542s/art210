@@ -8,6 +8,8 @@ int nRaindrop = 13;
 Raindrop[] z = new Raindrop[nRaindrop];
 boolean test = false; // test the collision box
 PFont myfont;
+PImage bg;
+int y;
 
 
 static final int SPLASH = 0;
@@ -18,6 +20,7 @@ int gameState = SPLASH;
 void setup()
 {
   size(1200,800);
+  bg = loadImage("bg.png");
   //fullScreen();
   Ani.init(this);
   myfont = createFont("ribeye.ttf",100);
@@ -34,9 +37,11 @@ void setup()
 
 void draw()
 {
+
   if(gameState == SPLASH) splash_run();
   if(gameState == PLAY) game_run();
   if(gameState == LOSE) LOSE_run();
+   bg.resize(1200,800);
 
 }
 
@@ -137,11 +142,12 @@ void game_init()
 
 void game_run() //background boxes 
 {
-  background(201,236,255);
+  background(bg);
+  //background(201,236,255);
   //fill(230);
   //rect(100,100,width-200,height-200);
-  fill(142,166,144);
-  rect(0,height/2+242,width, 300);
+  //fill(142,166,144);
+  //rect(0,height/2+242,width, 300);
   s.display();
   s.update();
   s.check();
