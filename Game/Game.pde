@@ -1,10 +1,9 @@
 import processing.sound.*;
 SoundFile file;
-//SoundFile subfile;
 import de.looksgood.ani.*;
 
 Chick s;
-int nRaindrop = 13;
+int nRaindrop = 35;
 Raindrop[] z = new Raindrop[nRaindrop];
 boolean test = false; // test the collision box
 PFont myfont;
@@ -19,19 +18,15 @@ int gameState = SPLASH;
 
 void setup()
 {
-  size(1200,800);
+  size(width,height);
   bg = loadImage("bg.png");
-  //fullScreen();
+  fullScreen();
   Ani.init(this);
   myfont = createFont("ribeye.ttf",100);
   gameStateChange(SPLASH);
   
     file = new SoundFile(this, "ducks-at-the-lake-18260.wav");
     file.loop();
-  
- //subfile = new SoundFile(this, "drop-sound.wav");
- //file.cue(3.5);
- //file.play();
   
 }
 
@@ -41,7 +36,7 @@ void draw()
   if(gameState == SPLASH) splash_run();
   if(gameState == PLAY) game_run();
   if(gameState == LOSE) LOSE_run();
-   bg.resize(1200,800);
+   bg.resize(width,height);
 
 }
 
@@ -52,12 +47,6 @@ void keyPressed()
   if(gameState == LOSE) LOSE_keyPressed();
 }
 
-/*void mouseClicked()
-{
-  if(gameState == SPLASH) splash_mouseClicked();
-  if(gameState == PLAY) game_mouseClicked(); 
-  if(gameState == LOSE) LOSE_mouseClicked();
-}*/
 
 void gameStateChange(int state)
 {
@@ -78,12 +67,12 @@ void LOSE_run()
   //background(0,0,0);
   //fill(255,255,255);
   textAlign(CENTER);
-  textSize(50);
+  textSize(100);
   text("Your feathers got wet :(",width/2, height/2);
   textAlign(CENTER);
   textSize(40);
-  fill(255);
-  text("Press ANY key to try again", width/2, height-300);
+  fill(112,181,255);
+  text("Press ANY key to try again", width/2, height/2+100);
 }
 
 void LOSE_keyPressed()
@@ -143,11 +132,6 @@ void game_init()
 void game_run() //background boxes 
 {
   background(bg);
-  //background(201,236,255);
-  //fill(230);
-  //rect(100,100,width-200,height-200);
-  //fill(142,166,144);
-  //rect(0,height/2+242,width, 300);
   s.display();
   s.update();
   s.check();
@@ -166,3 +150,5 @@ void game_keyPressed()
 }
 
 /*game stuff end---------------------------------*/
+
+//freepik - fresh grass borders used
